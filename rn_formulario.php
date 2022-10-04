@@ -1,5 +1,10 @@
 <?php
 	
+	session_start(); // inica uma sessão no arquivo
+	/*Forma de persistir o estado de navegação enquanto o navegador estiver aberto, para persistir estado, podemos
+	trabalhar com sessões, precisamos informar que terá uma sesão, também vamos conhecer a função headers, que realiza
+	redicionamento*/
+	
 	$categorias = [];
 	$categorias[] = "infantil";
 	$categorias[] = "adolescente";
@@ -10,7 +15,7 @@
 	$idade = $_POST["idade"];
 	
 	if(empty($nome)){
-		echo "O nome não pode ser vazio";
+		$_SESSION['mensagem de erro'] = "O nome não pode ser vazio"; //uma array associativo, associar o valor a uma chave
 		return;
 	}
 	
