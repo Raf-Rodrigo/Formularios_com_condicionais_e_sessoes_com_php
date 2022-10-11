@@ -1,0 +1,20 @@
+<?php
+	
+	session_start(); // inica uma sessão no arquivo
+	/*Forma de persistir o estado de navegação enquanto o navegador estiver aberto, para persistir estado, podemos
+	trabalhar com sessões, precisamos informar que terá uma sesão, também vamos conhecer a função headers, que realiza
+	redicionamento*/
+
+	include "servicos/servicoMensagemSessao.php";
+	include "servicos/servicovalidacao.php";
+	include "servicos/servicoCategoriaCompetidor.php";
+	
+	$nome = $_POST["nome"];
+	$idade = $_POST["idade"];
+	
+	//chamamos a função
+
+	defineCategoriaCompetidor($nome, $idade);
+	
+	header('location: index.php');
+	

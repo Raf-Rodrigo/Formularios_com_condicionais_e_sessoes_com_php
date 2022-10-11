@@ -1,8 +1,8 @@
 <?php
   session_start(); // deve vim antes de quaquer código que se tenha abaixo, inicia a sessão php e ecoa alguns tipos de heades
-    //sempre no início do script
+    //sempre no início do script e ecoa alguns tipos de headers e colocar depois ele pode não ter exito?>
+i
 ?>
-
 
 
 <!doctype html>
@@ -16,9 +16,19 @@
 </head>
 <body>
 	<p>FORMULÁRIO PARA INSCRIÇÃO DE COMPETIDORES</p>
-	<form action="rn_formulario.php" method="post">
+	<form action="script.php" method="post">
         <?php
-            $mensagemDeErro = isset($_SESSION['mensagem de erro']) ? $_SESSION['mensagem de erro'];
+            $mensagemDeSucesso = obterMensagemSucesso(){
+                if(!empty($mensagemDeSucesso)){
+                echo $mensagemDeSucesso;
+                }
+            }
+            
+            $mensagemDeErro = obterMensagemErro(){
+            if(!empty($mensagemDeErro)){
+                echo $mensagemDeErro;
+                }
+            }
         ?>
         <p>Your name: <input type="text" name="nome"></p>
 		<p>Your  age: <input type="text" name="idade"></p>
